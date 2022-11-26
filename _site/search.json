@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Election_2017",
+    "section": "",
+    "text": "viewof bill_length_min = Inputs.range(\n  [32, 50], \n  {value: 35, step: 1, label: \"Bill length (min):\"}\n)\nviewof islands = Inputs.checkbox(\n  [\"Torgersen\", \"Biscoe\", \"Dream\"], \n  { value: [\"Torgersen\", \"Biscoe\"], \n    label: \"Islands:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotData\n\n\n\ndotplot = Plot.dot(data, {x: \"blancs\", y: \"nuls\", stroke: \"code_du_departement\"}).plot()\n\n\n\n\n\n\n\n\n\nInputs.table(data)\n\n\n\n\n\n\n\n\n\n\ndata = FileAttachment(\"data/election_2017.csv\").csv({ typed: true })"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]

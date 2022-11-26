@@ -1,0 +1,43 @@
+---
+title: "Election_2017"
+format:
+  html:
+    toc: false
+    echo: false
+    keep-hidden: true
+    code-tools: true
+---
+
+```{ojs}
+//| panel: input
+viewof bill_length_min = Inputs.range(
+  [32, 50], 
+  {value: 35, step: 1, label: "Bill length (min):"}
+)
+viewof islands = Inputs.checkbox(
+  ["Torgersen", "Biscoe", "Dream"], 
+  { value: ["Torgersen", "Biscoe"], 
+    label: "Islands:"
+  }
+)
+```
+
+::: panel-tabset
+## Plot
+
+```{ojs}
+
+dotplot = Plot.dot(data, {x: "blancs", y: "nuls", stroke: "code_du_departement"}).plot()
+
+```
+
+## Data
+
+```{ojs}
+Inputs.table(data)
+```
+:::
+
+```{ojs}
+data = FileAttachment("data/election_2017.csv").csv({ typed: true })
+```
