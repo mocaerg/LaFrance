@@ -1,0 +1,93 @@
+<html>
+
+<head>
+<title>Title</title>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+
+
+<script>
+
+//let table;
+//let departement;
+let dep;
+let carte;
+
+
+function preload() {
+  //table = loadTable('data/election_2017.csv', 'csv', 'header');
+  //departement = loadTable('data/departement.csv', 'csv', 'header');
+  carte = loadTable('data/carte.csv', 'csv', 'header');
+}
+
+function setup() {
+  createCanvas(1000, 1000);
+  textSize(11);
+  textAlign(CENTER);
+  
+  dep = createSelect();
+  dep.position(10, 50);
+  
+  dep.option("   ");
+  dep.option("Abstention_2017");
+  dep.changed(depEvent);
+  
+  }
+
+function depEvent() {
+
+  //let item = dep.value();
+  //let rows = carte.matchRows(item, 'name');
+  
+  background(255);
+  //text('value   ' + item,100,200);
+  //text('nb  '+ rows.length ,100,100);
+  
+  
+  //beginShape(POINTS);
+  
+  //for (let z = 0; z < rows.length; z++) {
+  //  vertex(500+ rows[z].get('x')*22, 1200-rows[z].get('y')*22)
+  //  }
+  
+  
+  for (let i = 0; i < carte.getRowCount(); i++) {
+    strokeWeight(1.5);
+    stroke(200,200,200);
+    //if (carte.get(i,3)>15) {stroke('blue');}
+    if (carte.get(i,3)>20) {stroke('red');}
+    point(300 + carte.get(i,1)*40,2700-carte.get(i,2)*50);
+    
+    //vertex(500 + carte.get(i,1)*29,1700-carte.get(i,2)*30);
+    //text('row ' + i + ' is named ' + carte.get(i,0),100,100+(i*10));
+    }
+    
+
+  
+}
+  
+
+function draw() {
+  
+  //background(255);
+  
+  //let item = dep.value();
+  //text("info :"+ item,300,300);
+  //for (let c = 0; c < table.getColumnCount(); c++) {
+  //text('column ' + c + ' is named ' + table.columns[c],100,100+(c*10));
+  
+  
+  
+}
+  
+  
+
+
+
+
+</script>
+<body>
+Selectionner un departement
+</body>
+</html>
